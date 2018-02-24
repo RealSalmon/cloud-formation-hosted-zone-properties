@@ -1,4 +1,4 @@
-# hosted-zone-vpc-properties
+# cloud-formation-hosted-zone-properties
 
 [![CircleCI](https://circleci.com/gh/RealSalmon/cloud-formation-hosted-zone-properties.svg?style=svg)](https://circleci.com/gh/RealSalmon/cloud-formation-hosted-zone-properties)
 
