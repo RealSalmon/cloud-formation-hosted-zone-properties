@@ -1,6 +1,6 @@
 # hosted-zone-vpc-properties
 
-[![CircleCI](https://circleci.com/gh/RealSalmon/cloud-formation-hosted-zone-properties.svg?style=svg)](https://circleci.com/gh/RealSalmon/cloud-formation-hostes-zone-properties)
+[![CircleCI](https://circleci.com/gh/RealSalmon/cloud-formation-hosted-zone-properties.svg?style=svg)](https://circleci.com/gh/RealSalmon/cloud-formation-hosted-zone-properties)
 
 ## A Lambda-backed custom resource for CloudFormation
 
