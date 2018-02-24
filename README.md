@@ -6,7 +6,7 @@
 
 ### Purpose:
 
-This custom resource provides information  information about a Route53
+This custom resource provides information information about a Route53
 Hosted Zone. If all you have is the Hosted Zone ID, this resource will provide 
 you with that zone's name, which may be useful for creating Route53 resource
 records in your CloudFormation templates.

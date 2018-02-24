@@ -1,0 +1,34 @@
+---
+
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "Test stack for the cloud-formation-hosted-zone-properties custom resource"
+
+Parameters:
+
+  HostedZonePropertiesStackName:
+    Description: "The CloudFormation stack name containing the cloud-formation-hosted-zone-properties resources"
+    Type: "String"
+    Default: "cloud-formation-resource-hosted-zone-properties"
+
+  HostedZoneId:
+    Type: "AWS::Route53::HostedZone::Id"
+    Description: "The Route53 hosted zone to use"
+
+Resources:
+
+  HostedZoneProperties:
+    Type: "AWS::CloudFormation::CustomResource"
+    Version: "1.0"
+    Properties:
+      ServiceToken:
+        Fn::ImportValue:
+          !Sub "${VpcPropertiesStackName}-FunctionArn"
+      HostedZoneId: !Ref "HostedZoneId"
+
+Outputs:
+  HostedZoneName:
+    Description: "Name of the hosted zone"
+    Value: !Join
+      - ", "
+      - !GetAtt ["HostedZoneProperties", "Name"]
