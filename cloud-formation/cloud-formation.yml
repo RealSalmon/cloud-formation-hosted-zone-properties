@@ -57,9 +57,21 @@ Resources:
         Variables:
           LOGLEVEL: "info"
 
+  # Systems Manager Parameter Store for the service token
+  ServiceTokenParam:
+    Type: "AWS::SSM::Parameter"
+    Properties:
+      Name: "/cloud-formation/service-tokens/hosted-zone-properties"
+      Type: "String"
+      Value: !GetAtt ["LambdaFunction", "Arn"]
+
 Outputs:
   LambdaFunctionArn:
     Description: "The Lambda function's ARN"
     Value: !GetAtt ["LambdaFunction", "Arn"]
     Export:
       Name: !Sub "${AWS::StackName}-FunctionArn"
+
+  ServiceTokenParamKey:
+    Description: "The Systems Manager Parameter Store key where the service token is published"
+    Value: !Ref "ServiceTokenParam"

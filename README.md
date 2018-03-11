@@ -7,7 +7,7 @@
 ### Purpose:
 
 This custom resource provides information information about a Route53
-Hosted Zone. If all you have is the Hosted Zone ID, this resource will provide 
+Hosted Zone. If all you have is the Hosted Zone ID, this resource will provide
 you with that zone's name, which may be useful for creating Route53 resource
 records in your CloudFormation templates.
 
@@ -18,7 +18,12 @@ updating the Lambda function it creates with the code from python/index.py
 
 The Lambda function's ARN, which is needed for use as a service token when 
 using this custom resource in your CloudFormation  templates, will be exported
-as an output with the name _${AWS::StackName}-FunctionArn_.
+as an output with the name ```${AWS::StackName}-FunctionArn```. This service
+token will also be stored in
+[Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html)
+at
+```/cloud-formation/service-tokens/hosted-zone-properties```
+
 
 Once installed, you can test the custom resource by using the CloudFormation
 template at cloud-formation/example-cloud-formation.yml, which will create a 
